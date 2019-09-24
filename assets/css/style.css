@@ -29,24 +29,39 @@ nav {
 }
 
 .MainContent {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .Wrapper {
-    width: 900px;
+    width: 950px;
     margin: 0 auto;
     overflow: auto;
     border: 2px solid red;
     background-color: gainsboro;
-    opacity: .6;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .8;
     padding: 20px;
-    height: 500px;
+    height: 570px;
+    font-family: "Action_Man_Italic";
 }
 
+.TitleRow {
+    margin: 0 auto;
+    text-align: center;
+}
 
+.GameTitle {
+    margin: 0 auto;
+}
 
 h1 {
     margin: 0 auto;
 }
+
+@font-face {
+    font-family: "Action_Man_Italic";
+    src: url("../images/Action_Man_Italic.ttf") format("truetype");
+  }
 
 
 
