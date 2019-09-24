@@ -62,7 +62,18 @@ h1 {
     font-family: "Action_Man_Italic";
     src: url("../images/Action_Man_Italic.ttf") format("truetype");
   }
+  
+  .GameStart {
+      margin-top: 75px;
+  }
 
+  h3 {
+      margin: 0 auto;
+  }
 
+  .Kapow {
+      display: block;
+      margin: 0 auto;
+  }
 
 
