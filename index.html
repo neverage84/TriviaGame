@@ -37,6 +37,7 @@
             </div>
             
             <div class="col-12 GIFArea">
+                    <div class="row" id="TimeUp"></div>
                     <div class="row" id="CorrectAnswerID">
                         <h3>The Correct Answer was: Batman</h3>
                     </div>
@@ -164,11 +165,31 @@ function GameStart() {
 //Kapow click function
 $(".Kapow").on("click",function() {
         runTimer();
-        ShowGame = setTimeout(GameStart, 1000);
-        
-        
+        ShowGame = setTimeout(GameStart, 1000);      
 
 });
+//Answer click function
+
+
+//Display Question
+function DisplayQuestion() {
+    $(".GIFArea").hide();
+    
+$("#QuestionID").html(QuestionBase[count].Question);
+$("#Option1_ID").html(QuestionBase[count].Option1.answer);
+$("#Option2_ID").html(QuestionBase[count].Option2.answer);
+$("#Option3_ID").html(QuestionBase[count].Option3.answer);
+$("#Option4_ID").html(QuestionBase[count].Option4.answer);
+
+$(".QuestionArea").show();
+}
+//Next Question
+function NextQuestion(){
+    count++;
+    setTimeout(DisplayQuestion, 3000);
+
+}
+
 
 //Timer functions
 function runTimer() {
@@ -180,7 +201,11 @@ function decrement(){
     $("#TimeRemainingID").html("<h2> Time Remaining: " + number + "</h2>");
     if (number === 0) {
         stop();
+        $("#TimeUp").html("<h2>" + "Time's Up!" + "</h2>");
         DisplayGIF();
+        number = 23;
+        runTimer();
+        NextQuestion();
     }
 }
 
@@ -190,9 +215,9 @@ function stop() {
 
 //What happens when
 function DisplayGIF(){
-    $(".QuestionArea").empty();
+    $(".QuestionArea").hide();
     $(".GIFArea").show();
-    $("#CorrectAnswerID").html("<h2>" + "Time's Up!" + "<br>" + QuestionBase[count].GIFAnswer + "</h2>");
+    $("#CorrectAnswerID").html("<h2>" + "<br>" + QuestionBase[count].GIFAnswer + "</h2>");
     $(".GIFID").html("<img src=" + GIFs[count] + "> ");
 
 }
