@@ -1,9 +1,15 @@
+nav {
+    background-color: black;
+    border-top: 2px solid lightskyblue;
+    border-bottom: 2px solid red;
+    background-size: contain;
+    height: 110px;
+}
+
 body, html {
     height: 100%;
 }
-nav {
-    height: 100px;
-}
+
 
 .bg {
     background-image: url("../images/full-hd-marvel-wallpapers-windows-10-backgrounds-amazing-colourful-hi-res-cool-best-colours-artwork-3840x2160.jpeg");
@@ -24,6 +30,7 @@ nav {
 }
 
 .DCLogo {
+    top:30;
     float: right;
     height: 100px;
 }

@@ -66,6 +66,11 @@
     </audio>
             
 <script>
+
+window.onload =function() {
+    $(".QuestionArea").hide();
+};
+
 var QuestionBase = [
     {
         Question: "Which Superhero's identity is Tony Stark",
@@ -98,9 +103,11 @@ var QuestionBase = [
     }
 ]
 
-window.onload =function() {
-    $(".QuestionArea").hide();
-};
+function QuestionGenerator (){
+    QuestionNumber = 0;
+    
+}
+
 function GameStart() {
     $(".GameStart").hide();
     $(".TitleRow").hide();
