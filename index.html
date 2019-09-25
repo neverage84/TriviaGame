@@ -86,12 +86,17 @@ var QuestionBase = [
     }
 ]
 
+window.onload =function() {
+    $(".QuestionArea").hide();
+};
 function GameStart() {
     $(".GameStart").hide();
 }
 
     $(".Kapow").on("click",function() {
         GameStart();
+        $(".QuestionArea").show();
+
     });
 
 </script> 
