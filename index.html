@@ -50,10 +50,10 @@
                     <div class="row" id="QuestionId"> What was the blah blah blah?</div>   
                 </div>
                 <div class="col-12 Answers">
-                    <div class="row" id="Option1_ID">A) Star Wars</div>
-                    <div class="row" id="Option2_ID">B) Lord of the Rings</div>
-                    <div class="row" id="Option3_ID">C) Harry Potter</div>
-                    <div class="row" id="Option4_ID">D) Mazerunner</div>
+                    <div class="row Choice" id="Option1_ID">A) Star Wars</div>
+                    <div class="row Choice" id="Option2_ID">B) Lord of the Rings</div>
+                    <div class="row Choice" id="Option3_ID">C) Harry Potter</div>
+                    <div class="row Choice" id="Option4_ID">D) Mazerunner</div>
                 </div>
             </div>
         </div>
@@ -69,10 +69,22 @@
 var QuestionBase = [
     {
         Question: "Which Superhero's identity is Tony Stark",
-        Option1: "Batman",
-        correct: "Iron Man",
-        Option3: "Captain America",
-        Option4: "Thor",
+        Option1: {
+            answer: "Batman",
+            correct: "false"
+        },
+        Option2:{
+            answer: "Iron Man",
+            correct: "true"
+        },
+        Option3:{
+            answer: "Captain America",
+            correct: "false"
+        },
+        Option4: {
+            answer: "Thor",
+            correct: "false"
+        },
         GIF: "assets/images/IronMan.gif"
     
     },
@@ -91,6 +103,7 @@ window.onload =function() {
 };
 function GameStart() {
     $(".GameStart").hide();
+    $(".TitleRow").hide();
 }
 
     $(".Kapow").on("click",function() {
