@@ -48,7 +48,7 @@ body, html {
     background-size: cover;
     opacity: .8;
     padding: 20px;
-    height: 570px;
+    height: 600px;
     font-family: "Action_Man_Italic";
 }
 
@@ -87,12 +87,16 @@ h1 {
       width: 800px;
       font-size: 32px;
       margin: 0 auto;
-      margin-top: 100px; 
+      margin-top: 50px; 
   }
 
 .Answers {
     padding: 40px;
     
+}
+
+#GIFID {
+    margin-left: 270px;
 }
 
   
