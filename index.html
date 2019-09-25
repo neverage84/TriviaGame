@@ -57,7 +57,7 @@
             </div>
             <div class="row QuestionArea">
                 <div class="col-12">
-                    <div class="row" id="TimeRemainingId">Time Remaining: 20</div>
+                    <div class="row" id="TimeRemainingID"></div>
                 </div>
                 <div class="col-12">
                     <div class="row" id="QuestionID"></div>   
@@ -154,12 +154,25 @@ function GameStart() {
 $(".Kapow").on("click",function() {
         GameStart();
         $(".QuestionArea").show();
+        runTimer();
 
 });
 
-//Timer
+//Timer functions
 function runTimer() {
-    in
+    IntervalID = setInterval(decrement, 1000);
+}
+
+function decrement(){
+    number--;
+    $("#TimeRemainingID").html("<h2> Time Remaining: " + number + "</h2>");
+    if (number === 0) {
+        stop();
+    }
+}
+
+function stop() {
+    clearInterval(IntervalID);
 }
 
 //What happens when answer is clicked
