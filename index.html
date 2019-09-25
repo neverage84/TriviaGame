@@ -60,7 +60,7 @@
                     <div class="row" id="TimeRemainingId">Time Remaining: 20</div>
                 </div>
                 <div class="col-12">
-                    <div class="row" id="QuestionId"> What was the blah blah blah?</div>   
+                    <div class="row" id="QuestionID"></div>   
                 </div>
                 <div class="col-12 Answers">
                     <div class="row Choice" id="Option1_ID">A) Star Wars</div>
@@ -85,12 +85,13 @@ window.onload =function() {
     $(".GIFArea").hide();
 };
 
+var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif"];
 var QuestionBase = [
     {
-        Question: "Which Superhero's identity is Tony Stark",
+        Question: "Which Superhero's identity is Tony Stark?",
         Option1: {
-            answer: "Batman",
-            correct: "false"
+          answer: "Batman",
+          correct: "false"
         },
         Option2:{
             answer: "Iron Man",
@@ -103,19 +104,38 @@ var QuestionBase = [
         Option4: {
             answer: "Thor",
             correct: "false"
-        },
-        GIF: "assets/images/IronMan.gif"
+        }
+   
     
     },
     {
         Question: "What is the name of Thor's Hammer?",
-        Option1: "Helmdall",
-        Option2: "The Bifrost",
-        correct: "Mjolnir",
-        Option4: "Oden",
-        GIF: "assets/images/Thor.gif"
+        Option1: {
+            answer: "Helmdall",
+            correct: "false"
+        },
+        Option2: { 
+            answer: "The Bifrost",
+            correct: "false"
+        },
+        Option3: {
+            answer: "Mjolnir",
+            correct: "true"
+        },
+        Option4: {
+            answer:"Oden",
+            correct: "false"
+        },
+        
     }
+
 ]
+
+$("#QuestionID").html(QuestionBase[0].Question);
+$("#Option1_ID").html(QuestionBase[0].Option1.answer);
+$("#Option2_ID").html(QuestionBase[0].Option2.answer);
+$("#Option3_ID").html(QuestionBase[0].Option3.answer);
+$("#Option4_ID").html(QuestionBase[0].Option4.answer);
 
 function QuestionGenerator (){
     QuestionNumber = 0;
