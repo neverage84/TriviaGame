@@ -79,12 +79,14 @@
     </audio>
             
 <script>
-
+//on load hide questions and gifs
 window.onload =function() {
     $(".QuestionArea").hide();
     $(".GIFArea").hide();
 };
 
+//establishing global variables
+var count = 0;
 var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif"];
 var QuestionBase = [
     {
@@ -131,27 +133,29 @@ var QuestionBase = [
 
 ]
 
-$("#QuestionID").html(QuestionBase[0].Question);
-$("#Option1_ID").html(QuestionBase[0].Option1.answer);
-$("#Option2_ID").html(QuestionBase[0].Option2.answer);
-$("#Option3_ID").html(QuestionBase[0].Option3.answer);
-$("#Option4_ID").html(QuestionBase[0].Option4.answer);
+$("#QuestionID").html(QuestionBase[count].Question);
+$("#Option1_ID").html(QuestionBase[count].Option1.answer);
+$("#Option2_ID").html(QuestionBase[count].Option2.answer);
+$("#Option3_ID").html(QuestionBase[count].Option3.answer);
+$("#Option4_ID").html(QuestionBase[count].Option4.answer);
 
 function QuestionGenerator (){
     QuestionNumber = 0;
     
 }
-
+//function to hide game start menu when Kapow is clicker
 function GameStart() {
     $(".GameStart").hide();
     $(".TitleRow").hide();
 }
-
-    $(".Kapow").on("click",function() {
+//Kapow click function
+$(".Kapow").on("click",function() {
         GameStart();
         $(".QuestionArea").show();
 
-    });
+});
+
+//What happens when answer is clicked
 
 </script> 
     
