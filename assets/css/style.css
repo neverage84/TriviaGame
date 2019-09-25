@@ -74,7 +74,7 @@ h1 {
       margin-top: 75px;
   }
 
-  h3 {
+  h3,  h2 {
       margin: 0 auto;
   }
 
@@ -95,8 +95,11 @@ h1 {
     
 }
 
-#GIFID {
-    margin-left: 270px;
+.GIFID {
+    
+    margin-top: 100px;
+    margin: 0 auto;
+
 }
 
   

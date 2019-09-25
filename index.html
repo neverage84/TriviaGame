@@ -35,6 +35,19 @@
             <div class="row TitleRow">
                 <h1>MARVEL AND DC UNIVERSE TRIVIA GAME</h1>    
             </div>
+            
+            <div class="col-12 GIFArea">
+                    <div class="row" id="CorrectAnswerID">
+                        <h3>The Correct Answer was: Batman</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 GIFID">
+
+                        </div>
+                        
+                    </div>
+                </div>
+            
             <div  class="row GameStart">
                 <div class="col-12">
                     <div class="row Image">
@@ -45,14 +58,7 @@
                     </div>
                 </div>
             <div class= "row">
-                <div class="col-12 GIFArea">
-                    <div class="row" id="CorrectAnswerID">
-                        <h3>The Correct Answer was: Batman</h3>
-                    </div>
-                    <div class="row">
-                        <img id="GIFID"  class="Kapow"  height="200px" width="400px">
-                    </div>
-                </div>
+                
             </div>  
             </div>
             <div class="row QuestionArea">
@@ -83,12 +89,15 @@
 window.onload =function() {
     $(".QuestionArea").hide();
     $(".GIFArea").hide();
+    
 };
 
 //establishing global variables
 var count = 0;
-var number = 20;
+var number = 21;
+var CorrectAnswersSelected = 0;
 var IntervalID;
+var ShowGame;
 var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif"];
 var QuestionBase = [
     {
@@ -108,7 +117,8 @@ var QuestionBase = [
         Option4: {
             answer: "Thor",
             correct: "false"
-        }
+        },
+        GIFAnswer: "The Correct Answer is Iron Man"
    
     
     },
@@ -149,12 +159,14 @@ function QuestionGenerator (){
 function GameStart() {
     $(".GameStart").hide();
     $(".TitleRow").hide();
+    $(".QuestionArea").show();
 }
 //Kapow click function
 $(".Kapow").on("click",function() {
-        GameStart();
-        $(".QuestionArea").show();
         runTimer();
+        ShowGame = setTimeout(GameStart, 1000);
+        
+        
 
 });
 
@@ -168,6 +180,7 @@ function decrement(){
     $("#TimeRemainingID").html("<h2> Time Remaining: " + number + "</h2>");
     if (number === 0) {
         stop();
+        DisplayGIF();
     }
 }
 
@@ -175,7 +188,14 @@ function stop() {
     clearInterval(IntervalID);
 }
 
-//What happens when answer is clicked
+//What happens when
+function DisplayGIF(){
+    $(".QuestionArea").empty();
+    $(".GIFArea").show();
+    $("#CorrectAnswerID").html("<h2>" + "Time's Up!" + "<br>" + QuestionBase[count].GIFAnswer + "</h2>");
+    $(".GIFID").html("<img src=" + GIFs[count] + "> ");
+
+}
 
 </script> 
     
