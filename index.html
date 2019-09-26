@@ -93,6 +93,7 @@ window.onload =function() {
     
 };
 //establishing global variables
+var BatmanAudio = new Audio("assets/images/Batman.mp3");
 var count = 0;
 var number = 21;
 var CorrectAnswersSelected = 0;
@@ -168,7 +169,8 @@ function GameStart() {
 //Kapow click function
 $(".Kapow").on("click",function() {
         runTimer();
-        ShowGame = setTimeout(GameStart, 1000);      
+        ShowGame = setTimeout(GameStart, 1000);
+        BatmanAudio.play();      
 });
 //Answer click function
 $(".Choice").click(AnswerCheck);
