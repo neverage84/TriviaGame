@@ -247,24 +247,39 @@ function decrement(){
 function stop() {
     clearInterval(IntervalID);
 }
-//What happens when
+//function to display the GIF
 function DisplayGIF(){
     $(".QuestionArea").hide();
     $(".GIFArea").show();
     $("#CorrectAnswerID").html("<h2>" + "<br>" + QuestionBase[count].GIFAnswer + "</h2>");
     $(".GIFID").html("<img src=" + GIFs[count] + "> ");
 }
-
+//function to display score when game finished
 function EndGame(){
     $("#CorrectAnswerID").html("<h2>" + "<br>" + "Correct Answers: " + CorrectAnswersSelected + "<br>" + "Incorrect Answers: " + IncorrectAnswers + "</h2>");
     var button = $("<BUTTON>");
     button.html("Restart");
-    button.addClass("btn-info btn-lg");
+    button.addClass("btn-info btn-lg Restart");
     $(".GIFID").empty();
     $(".GIFID").append(button);
     console.log(button);
     
+    
 }
+
+$(".GIFID").on("click", function() {
+    count = 0;
+    number = 21;
+    CorrectAnswersSelected = 0;
+    IncorrectAnswers = 0;
+    TenQuestions = 0;
+    runTimer();
+    DisplayQuestion();
+});
+
+
+
+
 </script> 
     
     
