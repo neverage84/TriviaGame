@@ -99,6 +99,7 @@ var number = 21;
 var CorrectAnswersSelected = 0;
 var IntervalID;
 var ShowGame;
+var response = "";
 var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif"];
 var QuestionBase = [
     {
@@ -119,7 +120,7 @@ var QuestionBase = [
             answer: "Thor",
             correct: "false"
         },
-        GIFAnswer: "The Correct Answer is Iron Man"
+        GIFAnswer: "The Correct Answer is Iron Man."
    
     
     },
@@ -141,16 +142,24 @@ var QuestionBase = [
             answer:"Oden",
             correct: "false"
         },
-        
+        GIFAnswer: "The Correct Answer is Mjolnir."
+
     }
 
 ]
-
+//Put question text in related div.
 $("#QuestionID").html(QuestionBase[count].Question);
 $("#Option1_ID").html(QuestionBase[count].Option1.answer);
 $("#Option2_ID").html(QuestionBase[count].Option2.answer);
 $("#Option3_ID").html(QuestionBase[count].Option3.answer);
 $("#Option4_ID").html(QuestionBase[count].Option4.answer);
+
+//Assign value to each div option
+$("#Option1_ID").val(QuestionBase[count].Option1);
+$("#Option2_ID").val(QuestionBase[count].Option2);
+$("#Option3_ID").val(QuestionBase[count].Option3);
+$("#Option4_ID").val(QuestionBase[count].Option4);
+
 
 function QuestionGenerator (){
     QuestionNumber = 0;
@@ -169,7 +178,21 @@ $(".Kapow").on("click",function() {
 
 });
 //Answer click function
+$(".Choice").click(AnswerCheck);
 
+//Answer Check function
+function AnswerCheck() {
+    response = ($(this).val().correct);
+    console.log(response);
+    if (response === "true") {
+        CorrectAnswersSelected++;
+        stop();
+        DisplayGIF();
+        number = 23;
+        runTimer();
+        NextQuestion();
+    }
+}
 
 //Display Question
 function DisplayQuestion() {
@@ -180,6 +203,12 @@ $("#Option1_ID").html(QuestionBase[count].Option1.answer);
 $("#Option2_ID").html(QuestionBase[count].Option2.answer);
 $("#Option3_ID").html(QuestionBase[count].Option3.answer);
 $("#Option4_ID").html(QuestionBase[count].Option4.answer);
+
+$("#Option1_ID").val(QuestionBase[count].Option1);
+$("#Option2_ID").val(QuestionBase[count].Option2);
+$("#Option3_ID").val(QuestionBase[count].Option3);
+$("#Option4_ID").val(QuestionBase[count].Option4);
+
 
 $(".QuestionArea").show();
 }
