@@ -108,7 +108,7 @@ var IntervalID;
 var ShowGame;
 var response = "";
 var TenQuestions  = 0;
-var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif", "assets/images/joker.gif","assets/images/Flash.gif","assets/images/superman.gif","assets/images/infinity.gif","assets/images/captain.gif"];
+var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif", "assets/images/joker.gif","assets/images/Flash.gif","assets/images/superman.gif","assets/images/infinity.gif","assets/images/captain.gif","assets/images/avengers.gif"];
 var QuestionBase = [
     {
         Question: "Which Superhero's identity is Tony Stark?",
@@ -252,6 +252,26 @@ var QuestionBase = [
         },
         GIFAnswer: "The Correct Answer is Project Rebirth."
     },
+    {
+        Question: "What do the Avengers eat after the Battle of New York in the first Avengers Movie?",
+        Option1: {
+            answer: "Soup",
+            correct: "false"
+        },
+        Option2: { 
+            answer: "Cheeseburgers",
+            correct: "false"
+        },
+        Option3: {
+            answer: "A Home cooked meal",
+            correct: "false"
+        },
+        Option4: {
+            answer:"Schwarma",
+            correct: "true"
+        },
+        GIFAnswer: "The Correct Answer is Schwarma."
+    },
 
 
 ]
@@ -325,7 +345,7 @@ $(".QuestionArea").show();
 }
 //Next Question
 function NextQuestion(){
-    if (TenQuestions < 7) {
+    if (TenQuestions < 8) {
         count++;
         setTimeout(DisplayQuestion, 3000);
     }
