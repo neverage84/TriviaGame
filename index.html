@@ -106,8 +106,10 @@ var CorrectAnswersSelected = 0;
 var IncorrectAnswers = 0;
 var IntervalID;
 var ShowGame;
+
 var response = "";
 var TenQuestions  = 0;
+var Sounds = ["assets/images/PowerUp.mp3","assets/images/PowerUp.mp3","assets/images/Laser.mp3","assets/images/Joker.mp3","assets/images/Flash.mp3","assets/images/Bullet.mp3","assets/images/Explosion.mp3","assets/images/Missile.mp3","assets/images/Battle.mp3"];
 var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif", "assets/images/joker.gif","assets/images/Flash.gif","assets/images/superman.gif","assets/images/infinity.gif","assets/images/captain.gif","assets/images/avengers.gif"];
 var QuestionBase = [
     {
@@ -314,6 +316,7 @@ function AnswerCheck() {
         number = 23;
         runTimer();
         NextQuestion();
+        PlaySound();
         
        
     }
@@ -325,6 +328,7 @@ function AnswerCheck() {
         number = 23;
         runTimer();
         NextQuestion();
+        PlaySound();
         
     }
 }
@@ -370,6 +374,7 @@ function decrement(){
         runTimer();
         NextQuestion();
         IncorrectAnswers++;
+        PlaySound();
         
         
     }
@@ -383,6 +388,12 @@ function DisplayGIF(){
     $(".GIFArea").show();
     $("#CorrectAnswerID").html("<h2>" + "<br>" + QuestionBase[count].GIFAnswer + "</h2>");
     $(".GIFID").html("<img src=" + GIFs[count] + "> ");
+}
+//sound effect for each question
+function PlaySound(){
+    var SoundByte = new Audio(Sounds[count]);
+    
+    SoundByte.play();
 }
 //function to display score when game finished
 function EndGame(){
