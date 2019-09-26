@@ -185,6 +185,16 @@ function AnswerCheck() {
         number = 23;
         runTimer();
         NextQuestion();
+        TenQuestions++;
+    }
+    else {
+        IncorrectAnswers++;
+        stop();
+        DisplayGIF();
+        number = 23;
+        runTimer();
+        NextQuestion();
+        TenQuestions++;
     }
 }
 //Display Question
@@ -221,6 +231,8 @@ function decrement(){
         number = 23;
         runTimer();
         NextQuestion();
+        IncorrectAnswers++;
+        TenQuestions++;
     }
 }
 function stop() {
