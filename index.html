@@ -39,7 +39,7 @@
             <div class="col-12 GIFArea">
                     <div class="row" id="TimeUp"></div>
                     <div class="row" id="CorrectAnswerID">
-                        <h3>The Correct Answer was: Batman</h3>
+                        <h3></h3>
                     </div>
                     <div class="row">
                         <div class="col-6 GIFID">
@@ -186,8 +186,9 @@ function AnswerCheck() {
         runTimer();
         NextQuestion();
         TenQuestions++;
-        if (TenQuestions = 2) {
-            Restart();
+        if (TenQuestions === 2) {
+            stop();
+            EndGame();
         }
     }
     else {
@@ -198,8 +199,9 @@ function AnswerCheck() {
         runTimer();
         NextQuestion();
         TenQuestions++;
-        if (TenQuestions = 2) {
-            Restart();
+        if (TenQuestions === 2) {
+            stop();
+            EndGame();
         }
     }
 }
@@ -239,8 +241,9 @@ function decrement(){
         NextQuestion();
         IncorrectAnswers++;
         TenQuestions++;
-        if (TenQuestions = 2) {
-            Restart();
+        if (TenQuestions === 2) {
+            stop();
+            EndGame();
         }
     }
 }
@@ -253,6 +256,17 @@ function DisplayGIF(){
     $(".GIFArea").show();
     $("#CorrectAnswerID").html("<h2>" + "<br>" + QuestionBase[count].GIFAnswer + "</h2>");
     $(".GIFID").html("<img src=" + GIFs[count] + "> ");
+}
+
+function EndGame(){
+    $("#CorrectAnswerID").html("<h2>" + "<br>" + "Correct Answers: " + CorrectAnswersSelected + "<br>" + "Incorrect Answers: " + IncorrectAnswers + "</h2>");
+    var button = $("<BUTTON>");
+    button.html("Restart");
+    button.addClass("btn-info btn-lg");
+    $(".GIFID").empty();
+    $(".GIFID").append(button);
+    console.log(button);
+    
 }
 </script> 
     
