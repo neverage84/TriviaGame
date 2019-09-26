@@ -157,10 +157,8 @@ $("#Option1_ID").val(QuestionBase[count].Option1);
 $("#Option2_ID").val(QuestionBase[count].Option2);
 $("#Option3_ID").val(QuestionBase[count].Option3);
 $("#Option4_ID").val(QuestionBase[count].Option4);
-function QuestionGenerator (){
-    QuestionNumber = 0;
-    
-}
+
+
 //function to hide game start menu when Kapow is clicker
 function GameStart() {
     $(".GameStart").hide();
@@ -179,30 +177,25 @@ function AnswerCheck() {
     response = ($(this).val().correct);
     console.log(response);
     if (response === "true") {
+        TenQuestions++;
         CorrectAnswersSelected++;
         stop();
         DisplayGIF();
         number = 23;
         runTimer();
         NextQuestion();
-        TenQuestions++;
-        if (TenQuestions === 2) {
-            stop();
-            EndGame();
-        }
+        
+       
     }
     else {
+        TenQuestions++;
         IncorrectAnswers++;
         stop();
         DisplayGIF();
         number = 23;
         runTimer();
         NextQuestion();
-        TenQuestions++;
-        if (TenQuestions === 2) {
-            stop();
-            EndGame();
-        }
+        
     }
 }
 //Display Question
@@ -222,8 +215,14 @@ $(".QuestionArea").show();
 }
 //Next Question
 function NextQuestion(){
-    count++;
-    setTimeout(DisplayQuestion, 3000);
+    if (TenQuestions < 2) {
+        count++;
+        setTimeout(DisplayQuestion, 3000);
+    }
+    else {
+        stop();
+        setTimeout(EndGame, 3000);
+    }
 }
 //Timer functions
 function runTimer() {
@@ -233,6 +232,7 @@ function decrement(){
     number--;
     $("#TimeRemainingID").html("<h2> Time Remaining: " + number + "</h2>");
     if (number === 0) {
+        TenQuestions++;
         stop();
         $("#TimeUp").html("<h2>" + "Time's Up!" + "</h2>");
         DisplayGIF();
@@ -240,11 +240,8 @@ function decrement(){
         runTimer();
         NextQuestion();
         IncorrectAnswers++;
-        TenQuestions++;
-        if (TenQuestions === 2) {
-            stop();
-            EndGame();
-        }
+        
+        
     }
 }
 function stop() {
