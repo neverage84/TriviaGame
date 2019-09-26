@@ -186,6 +186,9 @@ function AnswerCheck() {
         runTimer();
         NextQuestion();
         TenQuestions++;
+        if (TenQuestions = 2) {
+            Restart();
+        }
     }
     else {
         IncorrectAnswers++;
@@ -195,6 +198,9 @@ function AnswerCheck() {
         runTimer();
         NextQuestion();
         TenQuestions++;
+        if (TenQuestions = 2) {
+            Restart();
+        }
     }
 }
 //Display Question
@@ -233,6 +239,9 @@ function decrement(){
         NextQuestion();
         IncorrectAnswers++;
         TenQuestions++;
+        if (TenQuestions = 2) {
+            Restart();
+        }
     }
 }
 function stop() {
