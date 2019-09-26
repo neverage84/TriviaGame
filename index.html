@@ -92,14 +92,15 @@ window.onload =function() {
     $(".GIFArea").hide();
     
 };
-
 //establishing global variables
 var count = 0;
 var number = 21;
 var CorrectAnswersSelected = 0;
+var IncorrectAnswers = 0;
 var IntervalID;
 var ShowGame;
 var response = "";
+var TenQuestions  = 0;
 var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif"];
 var QuestionBase = [
     {
@@ -143,9 +144,7 @@ var QuestionBase = [
             correct: "false"
         },
         GIFAnswer: "The Correct Answer is Mjolnir."
-
     }
-
 ]
 //Put question text in related div.
 $("#QuestionID").html(QuestionBase[count].Question);
@@ -153,14 +152,11 @@ $("#Option1_ID").html(QuestionBase[count].Option1.answer);
 $("#Option2_ID").html(QuestionBase[count].Option2.answer);
 $("#Option3_ID").html(QuestionBase[count].Option3.answer);
 $("#Option4_ID").html(QuestionBase[count].Option4.answer);
-
 //Assign value to each div option
 $("#Option1_ID").val(QuestionBase[count].Option1);
 $("#Option2_ID").val(QuestionBase[count].Option2);
 $("#Option3_ID").val(QuestionBase[count].Option3);
 $("#Option4_ID").val(QuestionBase[count].Option4);
-
-
 function QuestionGenerator (){
     QuestionNumber = 0;
     
@@ -175,11 +171,9 @@ function GameStart() {
 $(".Kapow").on("click",function() {
         runTimer();
         ShowGame = setTimeout(GameStart, 1000);      
-
 });
 //Answer click function
 $(".Choice").click(AnswerCheck);
-
 //Answer Check function
 function AnswerCheck() {
     response = ($(this).val().correct);
@@ -193,7 +187,6 @@ function AnswerCheck() {
         NextQuestion();
     }
 }
-
 //Display Question
 function DisplayQuestion() {
     $(".GIFArea").hide();
@@ -203,28 +196,21 @@ $("#Option1_ID").html(QuestionBase[count].Option1.answer);
 $("#Option2_ID").html(QuestionBase[count].Option2.answer);
 $("#Option3_ID").html(QuestionBase[count].Option3.answer);
 $("#Option4_ID").html(QuestionBase[count].Option4.answer);
-
 $("#Option1_ID").val(QuestionBase[count].Option1);
 $("#Option2_ID").val(QuestionBase[count].Option2);
 $("#Option3_ID").val(QuestionBase[count].Option3);
 $("#Option4_ID").val(QuestionBase[count].Option4);
-
-
 $(".QuestionArea").show();
 }
 //Next Question
 function NextQuestion(){
     count++;
     setTimeout(DisplayQuestion, 3000);
-
 }
-
-
 //Timer functions
 function runTimer() {
     IntervalID = setInterval(decrement, 1000);
 }
-
 function decrement(){
     number--;
     $("#TimeRemainingID").html("<h2> Time Remaining: " + number + "</h2>");
@@ -237,20 +223,16 @@ function decrement(){
         NextQuestion();
     }
 }
-
 function stop() {
     clearInterval(IntervalID);
 }
-
 //What happens when
 function DisplayGIF(){
     $(".QuestionArea").hide();
     $(".GIFArea").show();
     $("#CorrectAnswerID").html("<h2>" + "<br>" + QuestionBase[count].GIFAnswer + "</h2>");
     $(".GIFID").html("<img src=" + GIFs[count] + "> ");
-
 }
-
 </script> 
     
     
