@@ -20,7 +20,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="assets/javascript/app.js"></script>
 
-<nav class="navbar navbar-expand-sm navbar-dark">
+ <nav class="navbar navbar-expand-sm navbar-dark">
      <div class="container">
          <div class="logorow">
             <img class="MarvelLogo" src="assets/images/marvellogo.png">
@@ -56,6 +56,7 @@
                     </div>
                     <div class="row">
                         <img class="Kapow" src="assets/images/kapow.png" width="200px" height="200px">
+                        
                     </div>
                 </div>
             <div class= "row">
@@ -84,16 +85,21 @@
 <audio autoplay>
         <source src="assets/images/The Avengers Theme Song.mp3" type="audio/mpeg">
     </audio>
-            
+       
 <script>
+
+
 //on load hide questions and gifs
 window.onload =function() {
     $(".QuestionArea").hide();
     $(".GIFArea").hide();
     
 };
+
+
 //establishing global variables
 var BatmanAudio = new Audio("assets/images/Batman.mp3");
+var MP3s = []
 var count = 0;
 var number = 21;
 var CorrectAnswersSelected = 0;
@@ -102,7 +108,7 @@ var IntervalID;
 var ShowGame;
 var response = "";
 var TenQuestions  = 0;
-var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif"];
+var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif", "assets/images/joker.gif","assets/images/Flash.gif"];
 var QuestionBase = [
     {
         Question: "Which Superhero's identity is Tony Stark?",
@@ -145,7 +151,49 @@ var QuestionBase = [
             correct: "false"
         },
         GIFAnswer: "The Correct Answer is Mjolnir."
-    }
+    },
+    {
+        Question: "Who is Harley Quinn's love interest?",
+        Option1: {
+            answer: "The Joker",
+            correct: "true"
+        },
+        Option2: { 
+            answer: "Two Face",
+            correct: "false"
+        },
+        Option3: {
+            answer: "Robin",
+            correct: "false"
+        },
+        Option4: {
+            answer:"Bane",
+            correct: "false"
+        },
+        GIFAnswer: "The Correct Answer is The Joker."
+    },
+    {
+        Question: "Who is faster than Superman?",
+        Option1: {
+            answer: "Quiksilver",
+            correct: "false"
+        },
+        Option2: { 
+            answer: "The Flash",
+            correct: "false"
+        },
+        Option3: {
+            answer: "Green Hornet",
+            correct: "false"
+        },
+        Option4: {
+            answer:"Trick Question..No One!",
+            correct: "false"
+        },
+        GIFAnswer: "The Correct Answer is The Flash."
+    },
+
+
 ]
 //Put question text in related div.
 $("#QuestionID").html(QuestionBase[count].Question);
@@ -217,7 +265,7 @@ $(".QuestionArea").show();
 }
 //Next Question
 function NextQuestion(){
-    if (TenQuestions < 2) {
+    if (TenQuestions < 4) {
         count++;
         setTimeout(DisplayQuestion, 3000);
     }
@@ -259,16 +307,18 @@ function DisplayGIF(){
 //function to display score when game finished
 function EndGame(){
     $("#CorrectAnswerID").html("<h2>" + "<br>" + "Correct Answers: " + CorrectAnswersSelected + "<br>" + "Incorrect Answers: " + IncorrectAnswers + "</h2>");
+    $("#TimeUp").html("");
     var button = $("<BUTTON>");
     button.html("Restart");
     button.addClass("btn-info btn-lg Restart");
     $(".GIFID").empty();
+    $("#TimeUp").empty();
     $(".GIFID").append(button);
     console.log(button);
     
     
 }
-
+//What does the reset button do?
 $(".GIFID").on("click", function() {
     count = 0;
     number = 21;
