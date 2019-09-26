@@ -108,7 +108,7 @@ var IntervalID;
 var ShowGame;
 var response = "";
 var TenQuestions  = 0;
-var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif", "assets/images/joker.gif","assets/images/Flash.gif"];
+var GIFs = ["assets/images/IronMan.gif", "assets/images/Thor.gif", "assets/images/joker.gif","assets/images/Flash.gif","assets/images/superman.gif"];
 var QuestionBase = [
     {
         Question: "Which Superhero's identity is Tony Stark?",
@@ -173,14 +173,14 @@ var QuestionBase = [
         GIFAnswer: "The Correct Answer is The Joker."
     },
     {
-        Question: "Who is faster than Superman?",
+        Question: "Who is a faster runner than Superman?",
         Option1: {
             answer: "Quiksilver",
             correct: "false"
         },
         Option2: { 
             answer: "The Flash",
-            correct: "false"
+            correct: "true"
         },
         Option3: {
             answer: "Green Hornet",
@@ -191,6 +191,26 @@ var QuestionBase = [
             correct: "false"
         },
         GIFAnswer: "The Correct Answer is The Flash."
+    },
+    {
+        Question: "What is Superman's real name?",
+        Option1: {
+            answer: "Clark Kent",
+            correct: "false"
+        },
+        Option2: { 
+            answer: "Peter Parker",
+            correct: "false"
+        },
+        Option3: {
+            answer: "Kal-El",
+            correct: "true"
+        },
+        Option4: {
+            answer:"Scott Summers",
+            correct: "false"
+        },
+        GIFAnswer: "The Correct Answer is Kal-El."
     },
 
 
@@ -265,7 +285,7 @@ $(".QuestionArea").show();
 }
 //Next Question
 function NextQuestion(){
-    if (TenQuestions < 4) {
+    if (TenQuestions < 5) {
         count++;
         setTimeout(DisplayQuestion, 3000);
     }
