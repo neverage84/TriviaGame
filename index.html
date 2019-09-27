@@ -106,7 +106,7 @@ var CorrectAnswersSelected = 0;
 var IncorrectAnswers = 0;
 var IntervalID;
 var ShowGame;
-
+var Unanswered =  0;
 var response = "";
 var TenQuestions  = 0;
 var Sounds = ["assets/images/PowerUp.mp3","assets/images/PowerUp.mp3","assets/images/Laser.mp3","assets/images/Joker.mp3","assets/images/Flash.mp3","assets/images/Bullet.mp3","assets/images/Explosion.mp3","assets/images/Missile.mp3","assets/images/Torpedo.mp3"];
@@ -373,7 +373,7 @@ function decrement(){
         number = 23;
         runTimer();
         NextQuestion();
-        IncorrectAnswers++;
+        Unanswered++;
         PlaySound();
         
         
@@ -397,7 +397,7 @@ function PlaySound(){
 }
 //function to display score when game finished
 function EndGame(){
-    $("#CorrectAnswerID").html("<h2>" + "<br>" + "Correct Answers: " + CorrectAnswersSelected + "<br>" + "Incorrect Answers: " + IncorrectAnswers + "</h2>");
+    $("#CorrectAnswerID").html("<h2>" + "<br>" + "Correct Answers: " + CorrectAnswersSelected + "<br>" + "Incorrect Answers: " + IncorrectAnswers + "<br>" + "Unanswered Questions: " + Unanswered + "</h2>");
     $("#TimeUp").html("");
     var button = $("<BUTTON>");
     button.html("Restart");
@@ -415,6 +415,7 @@ $(".GIFID").on("click", function() {
     number = 21;
     CorrectAnswersSelected = 0;
     IncorrectAnswers = 0;
+    Unanswered = 0;
     TenQuestions = 0;
     runTimer();
     DisplayQuestion();
