@@ -51,6 +51,7 @@ body, html {
     padding: 20px;
     height: 600px;
     font-family: "Action_Man_Italic";
+    border-radius: 5px;
 }
 
 .TitleRow {
