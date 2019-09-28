@@ -80,10 +80,7 @@ h1 {
       margin: 0 auto;
   }
 
-  .Kapow {
-      display: block;
-      margin: 0 auto;
-  }
+ 
 
   .QuestionArea {
       width: 800px;
@@ -97,9 +94,7 @@ h1 {
     
 }
 
-.GIFID {
-    margin: 0 auto;
-}
+
 button {
     margin-left: 170px;
 
