@@ -335,7 +335,7 @@ function AnswerCheck() {
 //Display Question
 function DisplayQuestion() {
     $(".GIFArea").hide();
-    
+    $("#TimeUp").empty();  
 $("#QuestionID").html(QuestionBase[count].Question);
 $("#Option1_ID").html(QuestionBase[count].Option1.answer);
 $("#Option2_ID").html(QuestionBase[count].Option2.answer);
@@ -385,6 +385,7 @@ function stop() {
 //function to display the GIF
 function DisplayGIF(){
     $(".QuestionArea").hide();
+   
     $(".GIFArea").show();
     $("#CorrectAnswerID").html("<h2>" + "<br>" + QuestionBase[count].GIFAnswer + "</h2>");
     $(".GIFID").html("<img src=" + GIFs[count] + "> ");
@@ -398,7 +399,7 @@ function PlaySound(){
 //function to display score when game finished
 function EndGame(){
     $("#CorrectAnswerID").html("<h2>" + "<br>" + "Correct Answers: " + CorrectAnswersSelected + "<br>" + "Incorrect Answers: " + IncorrectAnswers + "<br>" + "Unanswered Questions: " + Unanswered + "</h2>");
-    $("#TimeUp").html("");
+    
     var button = $("<BUTTON>");
     button.html("Restart");
     button.addClass("btn-info btn-lg Restart");
