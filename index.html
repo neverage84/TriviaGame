@@ -99,6 +99,7 @@ window.onload =function() {
 
 //establishing global variables
 var BatmanAudio = new Audio("assets/images/Batman.mp3");
+var AvengersAudio = new Audio("assets/images/The Avengers Theme Song.mp3");
 var MP3s = []
 var count = 0;
 var number = 21;
@@ -300,7 +301,8 @@ function GameStart() {
 $(".Kapow").on("click",function() {
         runTimer();
         ShowGame = setTimeout(GameStart, 1000);
-        BatmanAudio.play();      
+        BatmanAudio.play();  
+        AvengersAudio.play();    
 });
 //Answer click function
 $(".Choice").click(AnswerCheck);
