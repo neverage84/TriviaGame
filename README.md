@@ -6,6 +6,7 @@ Created a trivia game that shows only one question until the player answers it o
 If the player runs out of time,  it tells the player that time's up and displays the correct answer. 
 
 On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
+
 ![Alt Text](https://github.com/neverage84/TriviaGame/blob/master/TriviaGame.gif?raw=true)
 
 ## Technologies Used
